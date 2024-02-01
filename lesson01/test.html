@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test {
+            color: blue;
+        }
+
+        .card {
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 30px;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>First JS lesson</h1>
+
+    <div class="item">
+        <h4>Name</h4>
+        <input class="inp" type="text">
+        <h4>Last Name</h4>
+        <input class="inp2" type="text">
+        <h4>Age</h4>
+        <input class="age" type="number">
+        <button class="btn">Start</button>
+        <button class="res">Reset</button>
+    </div>
+
+    <div class="item">
+        <h4>Hello, <span class="out"></span></h4>
+        <h4>Age <span class="aout"></span></h4>
+    </div>
+
+    <script>
+        let inp = document.querySelector('.inp')
+        let inp2 = document.querySelector('.inp2')
+        let age = document.querySelector('.age')
+        let btn = document.querySelector('.btn')
+        let res = document.querySelector('.res')
+        let out = document.querySelector('.out')
+        let aout = document.querySelector('.aout')
+
+
+        // out.innerText = "rji"
+
+        btn.onclick = () => {
+            console.log(inp.value)
+            console.log(inp2.value)
+            console.log(age.value)
+            out.innerHTML = (inp.value + " " + inp2.value)
+            aout.innerHTML = (age.value)
+        }
+
+        btn.onclick = () => {
+            out.innerHTML += `
+            <div class="card">
+                <img src="${inp2.value}" width="200">
+                <h4>${inp.value}</h4>
+            </div>
+            `
+        }
+
+        res.onclick = () => {
+            out.innerHTML = ""
+            inp.value = ""
+            inp2.value = ""
+        }
+    </script>
+</body>
+
+</html>

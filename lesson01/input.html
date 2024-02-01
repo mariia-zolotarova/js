@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>First JS lesson</h1>
+
+    <div class="item">
+        <h4>Name</h4>
+        <input class="inp" type="text">
+        <button class="btn">Start</button>
+    </div>
+
+    <div class="item">
+        <h4>Hello, <span class="out"></span></h4>
+    </div>
+
+    <script>
+        let inp = document.querySelector('.inp')
+        let btn = document.querySelector('.btn')
+        let out = document.querySelector('.out')
+
+        // out.innerText = "rji"
+
+        btn.onclick = () => {
+            console.log(inp.value)
+            out.innerHTML = inp.value
+        }
+    </script>
+</body>
+
+</html>

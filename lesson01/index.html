@@ -5,10 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .test {
+            color: blue;
+        }
+    </style>
 </head>
 
 <body>
+    <h1>First JS lesson</h1>
 
+
+
+    <script>
+        if (true) {
+            var testVar = 'Test'; //Глобальна видимість
+            let testLet = 'Test';//Локальна видимість }
+        }
+
+
+        const testConnst = 'Hello';
+
+        // console.log('String')
+        // console.log(testVar)
+        // console.log(123)
+
+        // alert("Alert Test")
+
+        // prompt("Test")
+
+        let name = prompt("What is your name?")
+
+        document.write(`
+            <h2 class="test">
+              ${testConnst}  ${name}    
+            </h2>
+        `)
+
+        console.log(testConnst + " " + name)
+    </script>
 </body>
 
 </html>
