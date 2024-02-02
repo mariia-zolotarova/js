@@ -11,7 +11,6 @@
             margin: 0 0 20px;
             border: 1px solid black;
             border-radius: 20px;
-
         }
     </style>
 </head>
@@ -22,22 +21,50 @@
             <h3>Введіть радіус кола</h3>
             <input class="inp1" type="number" placeholder="Радіус кола">
             <button class="btn1">Порахувати</button>
-            <h4>Площа окружності: <span class="out1"></span></h4>
+            <h4>Площа окружності: <span class="out1"></span> см^2</h4>
         </div>
         <div class="item">
             <h3>Введіть відстань між містами</h3>
             <input class="inp21" type="number" placeholder="Відстань">
             <input class="inp22" type="number" placeholder="Час">
             <button class="btn2">Порахувати</button>
-            <h4>Час прибуття: <span class="out2"></span></h4>
+            <h4>Необхідна швидкість руху: <span class="out2"></span> км/год</h4>
         </div>
         <div class="item">
-            <h3>UAH to USD</h3>
+            <h3>USD to EUR</h3>
             <input class="inp3" type="number" placeholder="Долари">
             <button class="btn3">Порахувати</button>
-            <h4>Ви отримаєте: <span class="out3"></span> $</h4>
+            <h4>Ви отримаєте: <span class="out3"></span> EUR</h4>
         </div>
     </div>
+
+    <script>
+        let inp1 = document.querySelector('.inp1')
+        let btn1 = document.querySelector('.btn1')
+        let out1 = document.querySelector('.out1')
+        let inp21 = document.querySelector('.inp21')
+        let inp22 = document.querySelector('.inp22')
+        let btn2 = document.querySelector('.btn2')
+        let out2 = document.querySelector('.out2')
+        let inp3 = document.querySelector('.inp3')
+        let btn3 = document.querySelector('.btn3')
+        let out3 = document.querySelector('.out3')
+        const exchange = 0.92
+
+        // out.innerText = "rji"
+
+        btn1.onclick = () => {
+            out1.innerHTML = +inp1.value * Math.PI * 2
+        }
+
+        btn2.onclick = () => {
+            out2.innerHTML = +inp21.value / +inp22.value
+        }
+
+        btn3.onclick = () => {
+            out3.innerHTML = +inp3.value * exchange
+        }
+    </script>
 </body>
 
 </html>

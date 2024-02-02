@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Normal task JS</h1>
+
+    <script>
+        let name = prompt('Name')
+        let year = +prompt('Enter your birthday year')
+        let side = +prompt('Enter square side')
+        const currentYear = new Date().getFullYear()
+        let age = currentYear - year
+        let square = side * 4
+
+
+        alert("Hello, " + name + ". You are " + age + " year's old ." + " And your square perimeter " + square);
+
+        document.write(`
+            <h2 class="test">
+             <p> Your name</p> ${name} 
+             <hr>
+             <p>Your age</p> ${age}  
+             <hr>
+             <p>Your square perimeter</p> ${square}  
+            </h2>
+        `)
+    </script>
+</body>
+
+</html>
