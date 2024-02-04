@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(43, 52, 60);
+    color: rgb(212, 232, 248);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+
+}
+
+.category {
+    border: 3px solid blue;
+    padding: 20px;
+    width: 50%;
+    margin: 20px 0 20px 0;
+}
+
+.task {
+    border: 2px solid rgb(154, 154, 240);
+    padding: 10px;
+    margin: 10px;
+}
+
+.btn {
+    padding: 10px 40px;
+    background-color: blue;
+    color: white;
+    border-radius: 15px;
+    border: none;
+}
+
+.inp {
+    padding: 10px 30px;
+    color: blue;
+    border-radius: 15px;
+    border: 2px solid blue;
+}
+
+.out {
+    border: 2px solid blue;
+    padding: 10px 30px;
+    margin-top: 10px;
+}
+
+.title {
+    margin-bottom: 10px;
+}
