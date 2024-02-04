@@ -36,3 +36,26 @@ function t5() {
     out.textContent = `${(Number(data1)) % 10}${Math.floor((Number(data1) / 10)) % 10}${Math.floor(Number(data1) / 100)}`;
 }
 document.querySelector('.btn-05').onclick = t5;
+
+function t6() {
+    let amount = document.querySelector('.inp-06').value;
+    let out = document.querySelector('.out-06');
+    let interest = 0.05;
+    let month = 2;
+    let rate = interest / 12;
+    out.textContent = `${Number(amount) * month * rate}`;
+}
+document.querySelector('.btn-06').onclick = t6;
+
+function t7() {
+    let out1 = document.querySelector('.out-07');
+    let out2 = document.querySelector('.out-08');
+    let out3 = document.querySelector('.out-09');
+    let number1 = 2
+    let number2 = 0
+    let number3 = 3
+    out1.textContent = `${number1 && number2 && number3}`;
+    out2.textContent = `${number1 || number2 || number3}`;
+    out3.textContent = `${number1 && number2 || number3}`;
+}
+document.querySelector('.btn-07').onclick = t7;
