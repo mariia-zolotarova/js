@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class="inp1" type="text" placeholder="Login">
+    <input class="inp11" type="number" placeholder="Age">
+
+    <button class="btn1">=</button>
+
+    <div class="out"></div>
+
+    <script>
+        //let userName ='sasha';
+
+        let inp1 = document.querySelector('.inp1')
+        let inp11 = document.querySelector('.inp11')
+        let btn1 = document.querySelector('.btn1')
+        let out = document.querySelector('.out')
+
+        if (btn1) {
+            btn1.onclick = () => {
+                console.log(inp1.value);
+                console.log(inp11.value);
+
+
+                if ((+inp11.value >= 16) && (+inp11.value < 18)) {
+                    out.innerHTML = "Please, register for military service!!!";
+                }
+                else if ((+inp11.value >= 18) && (+inp11.value <= 25)) {
+                    out.innerHTML = "Contract military service!!!";
+                }
+                else if ((+inp11.value >= 25) && (+inp11.value <= 60)) {
+                    out.innerHTML = "Conscript military service!!!";
+                }
+                else {
+                    out.innerHTML = "Enjoy your life!!!";
+                }
+
+                inp1.value = "";
+                inp11.value = "";
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class="inp1" type="number" placeholder="num">
+
+    <select class="sel" name="" id="">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+    </select>
+
+    <input class="inp11" type="number" placeholder="num">
+    <button class="btn1">=</button>
+
+
+
+    <div class="out"></div>
+
+    <script>
+        //let userName ='sasha';
+
+        let inp1 = document.querySelector('.inp1')
+        let inp11 = document.querySelector('.inp11')
+        let btn1 = document.querySelector('.btn1')
+
+        let sel = document.querySelector('.sel')
+
+        let out = document.querySelector('.out')
+
+
+        if (btn1) {
+            btn1.onclick = () => {
+                console.log(inp1.value);
+                console.log(inp11.value);
+                console.log(sel.value);
+
+
+                if (inp1.value == "" || inp11.value == "") {
+                    out.innerHTML = "Please enter all number"
+                }
+                else if (inp1.value && inp11.value) {
+                    if (sel.value == '+') {
+                        out.innerHTML = Number(inp1.value) + Number(inp11.value);
+                    }
+                    else if (sel.value == '-') {
+                        out.innerHTML = Number(inp1.value) - Number(inp11.value);
+                    }
+                    else if (sel.value == '*') {
+                        out.innerHTML = Number(inp1.value) - Number(inp11.value);
+                    }
+                    else {
+                        out.innerHTML = "Try again"
+                    }
+                }
+
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

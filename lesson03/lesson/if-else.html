@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class="inp1" type="text" placeholder="Login">
+    <input class="inp11" type="password" placeholder="Password">
+    <button class="btn1">Sing in</button>
+    <div class="out"></div>
+
+    <script>
+        //let userName ='sasha';
+
+        let inp1 = document.querySelector('.inp1')
+        let inp11 = document.querySelector('.inp11')
+        let btn1 = document.querySelector('.btn1')
+        let out = document.querySelector('.out')
+
+
+        if (btn1) {
+            btn1.onclick = () => {
+                console.log(inp1.value);
+
+                if (inp1.value == 'sasha' && inp11.value == '123') {
+                    out.innerHTML = "Good job";
+                }
+                else if (inp1.value == 'sasha' || inp11.value == '123') {
+                    out.innerHTML = " Incorrect! Dont give up! Try again or reset your password!!!";
+                }
+                else {
+                    out.innerHTML = " Incorrect! Go away!!!";
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
