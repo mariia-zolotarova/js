@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>'Artem', 'Masha', 'Valik', 'Roma', 'Ira', 'Lena'</h2>
+    <input class="inp" type="text" placeholder="Search">
+    <button class="btn1"> Search</button>
+    <button class="btn2">Show All</button>
+    <!-- <div class="out"></div> -->
+    <ul class="out"></ul>
+
+    <script>
+        let inp = document.querySelector('.inp')
+        let btn1 = document.querySelector('.btn1')
+        let btn2 = document.querySelector('.btn2')
+
+
+        let out = document.querySelector('.out')
+        // let out2 = document.querySelector('.out2')
+
+        let users = ['Artem', 'Masha', 'Valik', 'Roma', 'Ira', 'Lena']
+
+        // console.log(users[1]);
+
+
+        btn2.onclick = () => {
+            out.innerHTML = "";
+            for (let i = 0; i < users.length; i++) {
+                out.innerHTML += `<h2> ${users[i]} </h2>`;
+            }
+        }
+
+        btn1.onclick = () => {
+            out.innerHTML = "";
+
+            for (let i = 0; i < users.length; i++) {
+                if (users[i] == inp.value) {
+                    out.innerHTML = `<h2> ${users[i]} </h2>`
+                }
+
+            }
+            inp.value = "";
+        }
+
+
+    </script>
+</body>
+
+</html>
