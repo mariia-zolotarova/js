@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .card {
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="card">
+            <img class="card__img" src="imageUrl" alt="">
+            <div class="cord__content">
+                <h3 class="card__title">fullName</h3>
+                <div class="card__price"> rate
+                    <span>symbol</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let out = document.querySelector('.row')
+
+        fetch('https://www.binance.com/bapi/asset/v1/public/asset-service/product/currency')
+            .then(data => data.json())
+            .then(data => getItem(data.data))
+
+
+        function createCard(item) {
+            return `<div class="card">
+            <img class="card__img" src="${item.imageUrl}" alt="">
+            <div class="cord__content">
+                <h3 class="card__title">${item.fullName}</h3>
+                <div class="card__price"> ${item.rate}
+                    <span>${item.symbol}</span>
+                </div>
+            </div>
+        </div>`
+        }
+
+
+        function getItem(item) {
+
+            out.innerHTML = ''
+            for (let i = 0; i < item.length; i++) {
+                out.innerHTML += createCard(item[i])
+
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
