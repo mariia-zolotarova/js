@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="row">
+
+    </div>
+    <button class="prev">Prev</button>
+    <button class="next">Next</button>
+
+    <script>
+
+        let out = document.querySelector('.row')
+        let btnNext = document.querySelector('.next')
+        let btnPrev = document.querySelector('.prev')
+        let page = 1
+
+        function buttonNext(next) {
+            out.innerHTML = ""
+            fetch(`https://rickandmortyapi.com/api/character?page=${next}`)
+                .then(data => data.json())
+                .then(data => data.results.map(item => out.innerHTML += item.name + "<br>"))
+        }
+
+        buttonNext(page)
+
+        btnNext.onclick = () => {
+            buttonNext(page++);
+        }
+        btnPrev.onclick = () => {
+            buttonNext(page--);
+        }
+
+
+    </script>
+</body>
+
+</html>
