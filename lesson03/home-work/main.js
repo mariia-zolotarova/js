@@ -75,7 +75,15 @@ function t4() {
     let data1 = document.querySelector('.inp-04').value;
     let data2 = document.querySelector('.inp-14').value;
     let out = document.querySelector('.out-04');
-    out.textContent = `${Math.floor((Number(data1)) / data2)} chocolates and ${(Number(data1)) % data2} money reminder`;
+
+    while (data1 != 0 & data2 != 0) {
+        if (data1 > data2) {
+            data1 = data1 % data2;
+        } else {
+            data2 = data2 % data1;
+        }
+    }
+    out.textContent = +data1 + +data2;
 }
 document.querySelector('.btn-04').onclick = t4;
 
@@ -83,7 +91,18 @@ document.querySelector('.btn-04').onclick = t4;
 function t5() {
     let data1 = document.querySelector('.inp-05').value;
     let out = document.querySelector('.out-05');
-    out.textContent = `${(Number(data1)) % 10}${Math.floor((Number(data1) / 10)) % 10}${Math.floor(Number(data1) / 100)}`;
+    function divisors(integer) {
+
+        var result = [];
+        for (let i = 0; i < integer; i++) {
+            if (i !== 1 && i !== integer && integer % i == 0) {
+                result.push(i)
+            }
+        }
+        return result;
+    };
+
+    out.textContent = divisors(data1);
 }
 document.querySelector('.btn-05').onclick = t5;
 
