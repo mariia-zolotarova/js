@@ -26,7 +26,7 @@
             out.innerHTML = ""
             fetch(`https://rickandmortyapi.com/api/character?page=${next}`)
                 .then(data => data.json())
-                .then(data => data.results.map(item => out.innerHTML += item.name + "<br>"))
+                .then(data => data.results.map(item => out.innerHTML += `${item.name} <br> `))
         }
 
         buttonNext(page)

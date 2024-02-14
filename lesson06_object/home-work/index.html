@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <select name="" id="">
+            <option value="Human">Human</option>
+            <option value="Human">Duck</option>
+        </select>
+        <label for="iu1">
+
+            Живий
+            <input type="checkbox">
+        </label>
+        <label for="iu2">
+
+            не Живий
+            <input type="checkbox">
+        </label>
+
+        <button>Search</button>
+
+
+    </header>
+
+    <div class="row">
+
+    </div>
+    <button class="prev">Prev</button>
+    <button class="next">Next</button>
+
+    <script>
+
+        let out = document.querySelector('.row')
+        let btnNext = document.querySelector('.next')
+        let btnPrev = document.querySelector('.prev')
+        let page = 1
+        let response;
+
+
+        function buttonNext(num) {
+            out.innerHTML = ""
+            fetch(`https://rickandmortyapi.com/api/character?page=${num}`)
+                .then(data => data.json())
+                .then(data => {
+                    console.log(data);
+                    response = data;
+                    data.results.map(item => out.innerHTML += ` 
+                        <div class="card">
+                            <img src="${item.image}">
+                            <h2 class="title"> ${item.name} </h2>  
+                            <p class="status"> ${item.status} </p>
+                        </div>
+                    `)
+                })
+        }
+        buttonNext(page)
+
+        btnNext.onclick = () => {
+            if (response && page < response.info.pages) {
+                page += 1;
+                buttonNext(page)
+            }
+        }
+        btnPrev.onclick = () => {
+            if (page > 1) {
+                page -= 1;
+                buttonNext(page)
+            }
+        }
+    </script>
+</body>
+
+</html>
