@@ -27,19 +27,17 @@
 <body>
 
     <header>
-        <select name="" id="">
-            <option value="Human">Human</option>
-            <option value="Human">Duck</option>
+        <select class="select" name="" id="">
+            <option class="select__human" value="Human">Human</option>
+            <option class="select__duck" value="Duck">Duck</option>
         </select>
-        <label for="iu1">
-
+        <label class="check__alive" for="iu1">
             Живий
-            <input type="checkbox">
+            <input class="check__alive" id="iu1" type="checkbox">
         </label>
-        <label for="iu2">
-
+        <label class="check__dead" for="iu2">
             не Живий
-            <input type="checkbox">
+            <input class="check__dead" id="iu2" type="checkbox">
         </label>
 
         <button>Search</button>
@@ -58,8 +56,11 @@
         let out = document.querySelector('.row')
         let btnNext = document.querySelector('.next')
         let btnPrev = document.querySelector('.prev')
+        let alive = document.querySelector('.check__alive')
+        let dead = document.querySelector('.check__dead')
         let page = 1
         let response;
+        btnPrev.disabled = true;
 
 
         function buttonNext(num) {
@@ -84,13 +85,58 @@
             if (response && page < response.info.pages) {
                 page += 1;
                 buttonNext(page)
+                btnPrev.disabled = false;
+                if (page >= response.info.pages) { btnNext.disabled = true; }
             }
         }
         btnPrev.onclick = () => {
             if (page > 1) {
                 page -= 1;
                 buttonNext(page)
+                btnNext.disabled = false;
+                if (page <= 1) { btnPrev.disabled = true; }
             }
+        }
+
+        alive.onclick = () => {
+            out.innerHTML = ""
+
+            let aliveBackgroundColor = (item) => {
+                if (document.getElementById("iu1").checked && item.status === "Alive") {
+                    return `style = "background-color: green;"`;
+                }
+
+                return ""
+            }
+
+            response.results.map(item => out.innerHTML += ` 
+                        <div class="card" ${aliveBackgroundColor(item)}>
+                            <img src="${item.image}">
+                            <h2 class="title"> ${item.name} </h2>  
+                            <p class="status"> ${item.status} </p>
+                        </div>
+                    `)
+
+        }
+
+        dead.onclick = () => {
+            out.innerHTML = ""
+
+            let deadBackgroundColor = (item) => {
+                if (document.getElementById("iu2").checked && item.status === "Dead") {
+                    return `style = "background-color: red;"`;
+                }
+                return ""
+            }
+
+            response.results.map(item => out.innerHTML += ` 
+                        <div class="card" ${deadBackgroundColor(item)}>
+                            <img src="${item.image}">
+                            <h2 class="title"> ${item.name} </h2>  
+                            <p class="status"> ${item.status} </p>
+                        </div>
+                    `)
+
         }
     </script>
 </body>
