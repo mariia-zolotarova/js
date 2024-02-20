@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 50%;
+        }
+
+        .wrap {
+            display: flex;
+        }
+
+        .picture {
+            position: relative;
+        }
+
+        .picture img {
+            display: block;
+            position: sticky;
+            top: 20px;
+            width: 100%;
+        }
+
+        .cart {
+            background-color: bisque;
+            font-size: 30px;
+            padding: 30px;
+            position: fixed;
+            right: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="out"></div>
+        <div class="picture"></div>
+    </div>
+
+    <div class="cart">
+        <h1>0</h1>
+    </div>
+
+    <script>
+        const out = document.querySelector('.out');
+        const cart2 = document.querySelector('.cart')
+        const picture = document.querySelector('.picture');
+        const cars = [
+            {
+                img: './img/rick.webp',
+                brand: "volkswagen",
+                model: "tiguan",
+                age: 2018,
+                price: 19000,
+                length: 20,
+            },
+            {
+                img: 'https://pyxis.nymag.com/v1/imgs/3b7/ca7/5fd3353737d602a5a1caa3fce92cb33b39-rick-morty.2x.rsocial.w600.jpg',
+                brand: "volkswagen",
+                model: "touran",
+                age: 2009,
+                price: 10000,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "volkswagen",
+                model: "passat",
+                age: 2009,
+                price: 7000,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "mercedes",
+                model: "E",
+                age: 2009,
+                price: 30000,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "mercedes",
+                model: "S",
+                age: 2009,
+                price: 38000,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "audi",
+                model: "A8",
+                age: 2009,
+                price: 28000,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "audi",
+                model: "Q7",
+                age: 2009,
+                price: 3900,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "mazda",
+                model: "CX-5",
+                age: 2009,
+                price: 10000,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "mazda",
+                model: "CX-9",
+                age: 2009,
+                price: 10000,
+                length: 670,
+            },
+        ]
+
+        let cart = [];
+
+        cars.map(item => {
+            let div = document.createElement('div')
+            // div.innerHTML = item.brand
+
+            let h1 = document.createElement('h1')
+            h1.innerHTML = item.brand
+
+            let img = document.createElement('img')
+            img.src = item.img
+
+            img.onclick = () => {
+                picture.innerHTML = ''
+                picture.innerHTML = `<img src ="${item.img}">`
+            }
+
+            let btn = document.createElement('button')
+            btn.innerHTML = "Add"
+
+            btn.onclick = () => {
+                out.innerHTML = ""
+                console.log(item);
+                out.innerHTML = `
+                ${item.brand}<br>
+                ${item.model}<br>
+                ${item.price}<br>`
+            }
+
+            let btnAddCart = document.createElement('button')
+            btnAddCart.innerHTML = "Add to Cart"
+            btnAddCart.onclick = () => {
+                cart.push(item)
+                console.log(cart.length);
+                cart2.innerHTML = cart.length
+            }
+
+            div.append(img, h1, btn, btnAddCart)
+
+
+            out.append(div)
+        })
+    </script>
+</body>
+
+</html>

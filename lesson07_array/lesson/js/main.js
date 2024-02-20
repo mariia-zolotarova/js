@@ -110,21 +110,39 @@ function renderCars(data) {
     `
 }
 
-// function showAll(){
-//     out.innerHTML ="";
+function showAll() {
+    out.innerHTML = ''
+    cars.map(car => {
+        out.innerHTML += renderCars(car)
+    })
+}
+showAll()
+
+// cars.map(car => {
 //     out.innerHTML += renderCars(car)
-// }
-// showAll()
+// });
 
-cars.map(car => {
-    out.innerHTML += renderCars(car)
-});
+// cars.map(car => {
+//     selectOut.innerHTML += `
+//     <option value="${car.brand}">${car.brand}</option>
+//     `
+// });
 
-cars.map(car => {
-    selectOut.innerHTML += `
-    <option value="${car.brand}">${car.brand}</option>
-    `
-});
+function renderOption() {
+    let arr2 = []
+    cars.map(item => {
+        arr2.push(item.brand)
+    })
+    let newArr = new Set(arr2)
+
+
+    // cars.map(car => {
+    //     selectOut.innerHTML += `
+    //      <option value="${car.brand}"> ${car.brand} </option>
+    //     `
+    // })
+}
+renderOption()
 
 btnSortBrand.onclick = () => {
     out.innerHTML = "";

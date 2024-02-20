@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>
+        count +/-
+    </h2>
+    <div class="count">
+        <button class="btnMinus">-</button>
+        <span class="countOut">0</span>
+        <button class="btnPlus">+</button>
+    </div>
+
+    <script>
+        let minus = document.querySelector('.btnMinus')
+        let plus = document.querySelector('.btnPlus')
+        let out = document.querySelector('.countOut')
+
+        count = 0;
+
+        function Minus() {
+            count--;
+            out.innerHTML = count;
+        }
+        function Plus() {
+            count++;
+            out.innerHTML = count;
+        }
+        plus.onclick = Plus
+        minus.onclick = Minus
+
+    </script>
+</body>
+
+</html>

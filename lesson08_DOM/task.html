@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="out"></div>
+
+        <button class="btnShow">ShowCart</button>
+        <ul class="out2"></ul>
+    </div>
+
+
+
+    <script>
+        const out = document.querySelector('.out');
+        const out2 = document.querySelector('.out2');
+        let btnShow = document.querySelector('.btnShow');
+        const cars = [
+            {
+                img: './img/rick.webp',
+                brand: "volkswagen",
+                model: "tiguan",
+                age: 2018,
+                price: 19000,
+                length: 20,
+            },
+            {
+                img: 'https://pyxis.nymag.com/v1/imgs/3b7/ca7/5fd3353737d602a5a1caa3fce92cb33b39-rick-morty.2x.rsocial.w600.jpg',
+                brand: "volkswagen",
+                model: "touran",
+                age: 2009,
+                price: 10000,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "volkswagen",
+                model: "passat",
+                age: 2009,
+                price: 7000,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "mercedes",
+                model: "E",
+                age: 2009,
+                price: 30000,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "mercedes",
+                model: "S",
+                age: 2009,
+                price: 38000,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "audi",
+                model: "A8",
+                age: 2009,
+                price: 28000,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "audi",
+                model: "Q7",
+                age: 2009,
+                price: 3900,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "mazda",
+                model: "CX-5",
+                age: 2009,
+                price: 10000,
+                length: 670,
+            },
+            {
+                img: './img/rick.webp',
+                brand: "mazda",
+                model: "CX-9",
+                age: 2009,
+                price: 10000,
+                length: 670,
+            },
+        ]
+
+        let cart = [];
+
+        cars.map(item => {
+
+
+            let h1 = document.createElement('h1')
+            h1.innerHTML = item.brand
+
+            let buttonAdd = document.createElement('button')
+            buttonAdd.innerHTML = "Add"
+
+            let div = document.createElement('div')
+
+            buttonAdd.onclick = () => {
+                console.log(item);
+                cart.push(item);
+            }
+
+            div.append(h1, buttonAdd)
+
+            out.append(div)
+        })
+
+        btnShow.onclick = () => {
+            cart.map(item => {
+                let li = document.createElement('li')
+                li.innerHTML = item.brand
+                out2.append(li)
+            })
+        }        
+    </script>
+</body>
+
+</html>

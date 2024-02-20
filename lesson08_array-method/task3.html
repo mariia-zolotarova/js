@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <h2>
+        Search
+    </h2>
+
+    <input class="inp" type="text" name="" id="" placeholder="Id">
+    <button class='btn'>Search</button>
+
+    <h5>Ваш товар: <span class="out"></span></h5>
+
+
+    <script>
+        const items = [
+            {
+                name: 'Test1',
+                id: 123,
+            },
+            {
+                name: 'Test2',
+                id: 223,
+            },
+            {
+                name: 'Test3',
+                id: 323,
+            },
+            {
+                name: 'Test4',
+                id: 423,
+            },
+
+        ]
+
+
+        let btn = document.querySelector('.btn')
+        let inp = document.querySelector('.inp')
+        let out = document.querySelector('.out')
+
+        function find() {
+            items.map(item => {
+                if (inp.value == item.id) {
+                    out.innerHTML = item.name
+                }
+            })
+        }
+        document.querySelector('.btn').onclick = find;
+    </script>
+</body>
+
+</html>

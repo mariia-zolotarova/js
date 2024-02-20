@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>To Do List</h2>
+    <input class="inp" type="text">
+    <button class="btn">Add</button>
+    <ol class="out">
+        <li>Test</li>
+        <li>Test</li>
+    </ol>
+    <div class="count">2</div>
+
+    <script>
+
+        let btn = document.querySelector('.btn')
+        let inp = document.querySelector('.inp')
+        let out = document.querySelector('.out')
+        let count = document.querySelector('.count')
+        let countStart = 2;
+
+        function add() {
+            out.innerHTML += `<li>${inp.value}</li>`;
+            count.innerHTML = countStart++;
+        }
+        document.querySelector('.btn').onclick = add;
+    </script>
+</body>
+
+</html>
