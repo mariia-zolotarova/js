@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="root">
+        <!-- <section class="hero">
+            <div class="container"></div>
+        </section> -->
+    </div>
+
+    <script>
+        const root = document.getElementById('root')
+
+        // const heroContent = [
+        //     {
+        //         name: "Name 1",
+        //         age: 29
+        //     },
+        //     {
+        //         name: "Name 2",
+        //         age: 33
+        //     },
+        //     {
+        //         name: "Name 3",
+        //         age: 15
+        //     },
+        //     {
+        //         name: "Name 4",
+        //         age: 19
+        //     },
+        // ];
+
+        const heroContent = {
+            title: "hello world",
+            description: "eftgferhgtoiu",
+            button: 'add'
+        }
+        let secHero = document.createElement('section')
+        secHero.classList.add('hero')
+
+        let container = document.createElement('div')
+        container.classList.add('container')
+
+
+        let secHeroTitle = document.createElement('h1')
+        secHeroTitle.classList.add('title')
+        secHeroTitle.innerHTML = heroContent.title
+
+
+        let secHeroText = document.createElement('p')
+        secHeroText.classList.add('description')
+        secHeroText.innerHTML = heroContent.description
+
+        let secHeroButton = document.createElement('button')
+
+        secHeroButton.onclick = () => {
+            secHeroTitle.style.color = "red"
+        }
+        secHeroButton.innerHTML = heroContent.button
+
+        // container.append(secHeroTitle, secHeroText, secHeroButton)
+
+
+        // secHero.append(container)
+
+
+        function createHero(tag) {
+            let item = document.createElement(tag)
+            item.classList.add('title')
+            item.innerHTML = "Test"
+            return item
+        }
+        secHero.appernd(createHero('h1'))
+
+
+        root.append(
+            secHero
+        )
+
+    </script>
+</body>
+
+</html>
