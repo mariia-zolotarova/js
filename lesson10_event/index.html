@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .error {
+            border: 2px solid red;
+        }
+
+        .er {
+            color: red;
+            display: none;
+        }
+
+        .er.vis {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" class="inp1">
+    <input type="text" class="inp2">
+    <input class="inp__chk" type="checkbox">
+    <button class="btn">Test</button>
+    <span class="er">error</span>
+    <div class="out"></div>
+    <script>
+        let btn = document.querySelector('.btn');
+        let errM = document.querySelector('.er');
+        let inpChk = document.querySelector('.inp__chk');
+        let inp1 = document.querySelector('.inp1');
+        let inp2 = document.querySelector('.inp2');
+        let out = document.querySelector('.out');
+
+        btn.addEventListener('click', (event) => { console.log(event) })
+
+        inpChk.addEventListener('change', errorM)
+
+        inp1.addEventListener('change', errorM)
+
+        function errorM() {
+            if (inpChk.checked) {
+                inp1.classList.remove('error')
+                errM.classList.remove('vis')
+            } else {
+                inp1.classList.add('error')
+                errM.classList.add('vis')
+            }
+        }
+
+        inp1.addEventListener('keyup', (event) => {
+            out.innerHTML += event.key
+        })
+    </script>
+</body>
+
+</html>

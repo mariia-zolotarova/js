@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="field">
+        <input class="inp__check" type="checkbox">
+        <span>Task 1 </span>
+    </div>
+    <div class="field">
+        <input class="inp__check" type="checkbox">
+        <span>Task 2 </span>
+    </div>
+    <div class="field">
+        <input class="inp__check" type="checkbox">
+        <span>Task 3 </span>
+    </div>
+    <div class="field">
+        <input class="inp__check" type="checkbox">
+        <span>Task 4 </span>
+    </div>
+    <div class="field">
+        <input class="inp__check" type="checkbox">
+        <span>Task 5 </span>
+    </div>
+    <div class="field">
+        <input class="inp__check" type="checkbox">
+        <span>Task 6 </span>
+    </div>
+
+    <div class="count"></div>
+
+    <script>
+        let inpChk = document.querySelectorAll('.inp__check');
+        let out = document.querySelector('.count');
+        let count = 0;
+
+        out.innerHTML = count
+
+        inpChk.addEventListener('change', counter)
+
+        function counter() {
+            if (inpChk.checked) {
+                out.textContent = ++count
+            } else {
+                out.textContent = --count
+            }
+        }
+    </script>
+</body>
+
+</html>
