@@ -34,21 +34,17 @@
 
 
     <script>
-        let inp = document.querySelectorAll('.chek')
-        let out = document.querySelector('.count')
-
-        console.log(inp)
-
-        inp.forEach(item => {
+        document.querySelectorAll('.chek').forEach(item => {
             item.addEventListener('change', countItem)
         })
 
         function countItem() {
+            let out = document.querySelector('.count')
             let count = 0
             let element = document.querySelectorAll('.chek')
             element.forEach(item => {
                 if (item.checked) {
-                    count = ++count
+                    count = count + 1
                 }
             })
             out.innerHTML = count

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            border: 2px solid red;
+        }
+
+        .er {
+            color: red;
+            display: none;
+        }
+
+        .er.vis {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <input class="inp" type="text">
+    <hr>
+    <label for="ch1">
+        <input class="ch1" id="ch1" type="checkbox">
+        Старше 18 років
+        <span class="er">error</span>
+    </label>
+
+    <ol class="out"></ol>
+
+
+    <script>
+        let inp = document.querySelector('.inp')
+        let checkbox = document.querySelector('.ch1')
+        let out = document.querySelector('.out')
+        let errM = document.querySelector('.er');
+
+        let arr2 = [
+            {
+                name: "Sasha",
+                age: 22
+            },
+            {
+                name: "Sveta",
+                age: 15
+            },
+            {
+                name: "Olha",
+                age: 33
+            },
+            {
+                name: "Vova",
+                age: 13
+            },
+            {
+                name: "Sasha 2",
+                age: 44
+            },
+        ]
+
+
+        checkbox.addEventListener('change', errorM)
+
+        inp.addEventListener('change', errorM)
+
+        function errorM() {
+            if (checkbox.checked) {
+                inp.classList.remove('error')
+                errM.classList.remove('vis')
+            } else {
+                inp.classList.add('error')
+                errM.classList.add('vis')
+            }
+        }
+
+        inp.addEventListener('change', errorM)
+    </script>
+</body>
+
+</html>
