@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <h2>To Do List</h2>
+
+    <div class="field">
+        <input class="chek" type="checkbox">
+        <span> Task 1</span>
+    </div>
+    <div class="field">
+        <input class="chek" type="checkbox">
+        <span> Task 2</span>
+    </div>
+    <div class="field">
+        <input class="chek" type="checkbox">
+        <span> Task 3</span>
+    </div>
+    <div class="field">
+        <input class="chek" type="checkbox">
+        <span> Task 4</span>
+    </div>
+
+
+    <div class="count"></div>
+
+
+    <script>
+        let inp = document.querySelectorAll('.chek')
+        let out = document.querySelector('.count')
+
+        console.log(inp)
+
+        inp.forEach(item => {
+            item.addEventListener('change', countItem)
+        })
+
+        function countItem() {
+            let count = 0
+            let element = document.querySelectorAll('.chek')
+            element.forEach(item => {
+                if (item.checked) {
+                    count = ++count
+                }
+            })
+            out.innerHTML = count
+        }
+
+
+    </script>
+</body>
+
+</html>
