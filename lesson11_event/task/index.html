@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        .wrapper {
+            overflow: hidden;
+        }
+
+        .hero {
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        p {
+            max-width: 350px;
+            margin: 10px 0;
+        }
+
+        img {
+            display: block;
+            /* width: 100%; */
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .planet {
+            height: 100vh;
+            position: absolute;
+            bottom: -30%;
+            right: -10%;
+        }
+
+        .doodle {
+            width: 100px;
+            height: 100px;
+            z-index: 2;
+        }
+
+        .doodle:nth-child(1) {
+            position: absolute;
+            left: 50%;
+            bottom: 20%
+        }
+
+        .doodle:nth-child(2) {
+            position: absolute;
+            left: 50%;
+            bottom: 20%
+        }
+
+        .doodle:nth-child(3) {
+            position: absolute;
+            left: 45%;
+            bottom: 50%
+        }
+
+        .cursor {
+            position: absolute;
+            right: 0%;
+            bottom: 0%;
+            width: 400px;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <section class="hero">
+            <div class="container">
+                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. </h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab minus totam ullam alias quam
+                    dignissimos?
+                    Praesentium, maxime sint aliquam quas alias suscipit temporibus magni eligendi quisquam quibusdam
+                    officiis, earum velit inventore, tempore accusamus? Blanditiis est doloribus nostrum. Dolor earum
+                    impedit consequuntur dignissimos temporibus eius veritatis quidem minima. Est, animi aliquid?</p>
+                <button>Lorem</button>
+                <img class="planet" data-speed="0.1" src="./img/planet.png" alt="">
+                <img class="cursor" data-speed="0.5" src="./img/cursor.png">
+                <img class="doodle" data-speed="1" src="./img/doodle-1.png">
+                <img class="doodle" data-speed="2.5" src="./img/doodle-2.png">
+                <img class="doodle" data-speed="3" src="./img/doodle-3.png">
+            </div>
+        </section>
+    </div>
+
+    <!-- <script>
+        let row = document.querySelector('.container');
+        let doodle = document.querySelectorAll('.doodle');
+
+        row.addEventListener('mousemove', (event) => {
+
+            doodle.forEach(item => {
+                let speed = item.getAttribute('data-speed')
+                item.style.transform = `translate(${event.clientX * speed / 5}px, ${event.clientY * speed / 5}px)`
+            })
+
+        })
+    </script> -->
+</body>
+
+</html>
