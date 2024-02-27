@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+
+    <style>
+        .low {
+            background-color: #b5f3b5;
+        }
+
+        .middle {
+            background-color: #ecec9e;
+        }
+
+        .high {
+            background-color: #f59898;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>To Do List</h2>
+<input class="inp" type="text">
+<select class="select">
+    <option value="low">Low</option>
+    <option value="middle">Middle</option>
+    <option value="high">High</option>
+</select>
+<button class="btn">Add</button>
+<ol class="out">
+
+</ol>
+<div class="count">0</div>
+
+
+<script>
+    let inp = document.querySelector('.inp')
+    let sel = document.querySelector('.select')
+    let btn = document.querySelector('.btn')
+    let out = document.querySelector('.out')
+    let count = document.querySelector('.count')
+
+    let items = []
+
+    //  Приорітети
+    // Low = green
+    // middle = yellow
+    // high = red
+
+
+    btn.addEventListener('click', createTask)
+
+    function createTask() {
+        out.innerHTML = ""
+
+        items.push({
+            name: inp.value,
+            priority: sel.value,
+            checked: false
+        })
+
+        inp.value = ""
+        showList();
+        updateCount();
+    }
+
+    function onCheck(name) {
+        const checkedItem = items.find(item => item.name === name);
+
+        checkedItem.checked = !checkedItem.checked;
+        updateCount();
+    }
+
+    function updateCount() {
+        count.innerHTML = items.filter(item => !item.checked).length.toString();
+    }
+
+
+    function showList() {
+        items.forEach(item => {
+            out.innerHTML += ` <li class="li">
+            <input type="checkbox" onchange="onCheck('${item.name}')">
+            <span class="${item.priority}">${item.name}</span>
+            <button onclick="deleteItem('${item.name}')">Х</button>
+            </li>`
+        })
+    }
+
+    function deleteItem(item) {
+        out.innerHTML = ""
+        items = items.filter(task => task.name !== item)
+        showList();
+        updateCount();
+    }
+
+</script>
+</body>
+
+</html>
