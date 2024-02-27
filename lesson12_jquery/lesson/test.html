@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+</head>
+<style>
+    .blue {
+        border: 1px solid blue;
+    }
+</style>
+<body>
+
+<div class="wrapper">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+</div>
+
+<script>
+    let box = document.querySelectorAll(".box");
+
+    function addColor() {
+        box.forEach(box => {
+            box.classList.add('blue');
+        })
+    }
+
+    addEventListener("click", addColor)
+    
+    // addColor()
+</script>
+</body>
+</html>
