@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+    <link href="./style.css" rel="stylesheet" type="text/css"/>
+
+    <title>Document</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <img alt="logo" class="logo" src="">
+        <div class="header__menu">
+            <p>Home</p>
+            <p>Catalog</p>
+            <p>News</p>
+            <p>Contact</p>
+        </div>
+        <div class="header__find">
+            <img alt="find" src="">
+            <img alt="profile" src="">
+        </div>
+    </header>
+    <section class="header__section">
+        <div class="swiper headingSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide heading__swiper">
+                    <img alt="heading" class="swiper-slide-img" src="./img/heading1.jpg">
+                    <div class="heading__container">
+                        <h1 class="heading__title">Find your own style</h1>
+                        <button class="heading__button">View More</button>
+                    </div>
+                </div>
+                <div class="swiper-slide heading__swiper">
+                    <img alt="heading" class="swiper-slide-img" src="./img/heading2.jpg">
+                    <div class="heading__container">
+                        <h1 class="heading__title">Find your own style</h1>
+                        <button class="heading__button">View More</button>
+                    </div>
+                </div>
+                <div class="swiper-slide heading__swiper">
+                    <img alt="heading" class="swiper-slide-img" src="./img/heading3.jpg">
+                    <div class="heading__container">
+                        <h1 class="heading__title">Find your own style</h1>
+                        <button class="heading__button">View More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section class="section__product">
+        <h2 class="section__product-title">New arrivals</h2>
+        <div class="swiper productSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide product-swiper-lide">
+                    <img alt="guitar" src="./img/guitar.jpg">
+                    <p>Hagstrom Alvar Limited Edition</p>
+                    <p>€2.990,00</p>
+                </div>
+                <div class="swiper-slide product-swiper-lide">
+                    <img alt="guitar" src="./img/guitar.jpg">
+                    <p>Hagstrom Alvar Limited Edition</p>
+                    <p>€2.990,00</p>
+                </div>
+                <div class="swiper-slide product-swiper-lide">
+                    <img alt="guitar" src="./img/guitar.jpg">
+                    <p>Hagstrom Alvar Limited Edition</p>
+                    <p>€2.990,00</p>
+                </div>
+                <div class="swiper-slide product-swiper-lide">
+                    <img alt="guitar" src="./img/guitar.jpg">
+                    <p>Hagstrom Alvar Limited Edition</p>
+                    <p>€2.990,00</p>
+                </div>
+                <div class="swiper-slide product-swiper-lide">
+                    <img alt="guitar" src="./img/guitar.jpg">
+                    <p>Hagstrom Alvar Limited Edition</p>
+                    <p>€2.990,00</p>
+                </div>
+                <div class="swiper-slide product-swiper-lide">
+                    <img alt="guitar" src="./img/guitar.jpg">
+                    <p>Hagstrom Alvar Limited Edition</p>
+                    <p>€2.990,00</p>
+                </div>
+                <div class="swiper-slide product-swiper-lide">
+                    <img alt="guitar" src="./img/guitar.jpg">
+                    <p>Hagstrom Alvar Limited Edition</p>
+                    <p>€2.990,00</p>
+                </div>
+                <div class="swiper-slide product-swiper-lide">
+                    <img alt="guitar" src="./img/guitar.jpg">
+                    <p>Hagstrom Alvar Limited Edition</p>
+                    <p>€2.990,00</p>
+                </div>
+                <div class="swiper-slide product-swiper-lide">
+                    <img alt="guitar" src="./img/guitar.jpg">
+                    <p>Hagstrom Alvar Limited Edition</p>
+                    <p>€2.990,00</p>
+                </div>
+
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <button class="section__product-button">View More</button>
+        <!--        <button class="section__product-button">View More</button>-->
+    </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    let swiper = new Swiper(".headingSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+    });
+
+    let productSwiper = new Swiper(".productSwiper", {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+</body>
+</html>
