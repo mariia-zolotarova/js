@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+    <style>
+        .light__border {
+            width: 50px;
+            height: 122px;
+            border: 2px solid black;
+        }
+
+        .light__stop,
+        .light__go {
+            width: 40px;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 50px;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .light__red {
+            background-color: red;
+        }
+
+        .light__green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="light__border">
+        <div class="light__stop"></div>
+        <div class="light__go"></div>
+    </div>
+    <button class="button__change">Change</button>
+</div>
+
+<script>
+    let stop = document.querySelector('.light__stop');
+    let go = document.querySelector('.light__go');
+    let button = document.querySelector('.button__change');
+
+
+    function changeColor() {
+        if (stop.classList.contains('light__red')) {
+            stop.classList.remove('light__red');
+            go.classList.add('light__green');
+        } else {
+            go.classList.remove('light__green');
+            stop.classList.add('light__red');
+        }
+    }
+
+    button.addEventListener('click', changeColor);
+
+</script>
+</body>
+</html>

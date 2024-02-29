@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+    <style>
+        .modal {
+            width: 500px;
+            height: 200px;
+            border-radius: 10px;
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .show {
+            display: flex;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="modal hide">
+        <h2>Hello, bla bla bla, close the window!</h2>
+        <button class="modal__close">Close❌</button>
+    </div>
+    <button class="modal__show">Show window</button>
+
+    <script>
+        let modal = document.querySelector('.modal')
+        let modalShow = document.querySelector('.modal__show')
+        let modalClose = document.querySelector('.modal__close')
+
+        function changeStatus() {
+            if (modal.classList.contains('show')) {
+                modal.classList.remove('show');
+                modal.classList.add('hide')
+                modalShow.classList.add('show');
+                modalShow.classList.remove('hide');
+            } else {
+                modal.classList.remove('hide');
+                modal.classList.add('show');
+                modalShow.classList.add('hide');
+                modalShow.classList.remove('show');
+            }
+        }
+
+        modalClose.addEventListener('click', changeStatus)
+        modalShow.addEventListener('click', changeStatus)
+    </script>
+</div>
+</body>
+</html>
