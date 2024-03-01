@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+</head>
+<body>
+
+<ol class="song__list">Song List</ol>
+
+
+<script>
+    let playList = [
+        {
+            author: "LED ZEPPELIN",
+            song: "STAIRWAY TO HEAVEN"
+        },
+        {
+            author: "QUEEN",
+            song: "BOHEMIAN RHAPSODY"
+        },
+        {
+            author: "LYNYRD SKYNYRD",
+            song: "FREE BIRD"
+        },
+        {
+            author: "DEEP PURPLE",
+            song: "SMOKE ON THE WATER"
+        },
+        {
+            author: "JIMI HENDRIX",
+            song: "ALL ALONG THE WATCHTOWER"
+        },
+        {
+            author: "AC/DC",
+            song: "BACK IN BLACK"
+        },
+        {
+            author: "QUEEN",
+            song: "WE WILL ROCK YOU"
+        },
+        {
+            author: "METALLICA",
+            song: "ENTER SANDMAN"
+        }
+    ];
+
+    let out = document.querySelector('.song__list');
+
+    function createItem(tag, className, styleName, text) {
+        let item = document.createElement(tag);
+        item.classList.add(className);
+        item.style.color = styleName;
+        item.textContent = text;
+
+        return item;
+    }
+
+    playList.forEach(item => {
+        let listItem = createItem('li', 'song__item');
+        listItem.append(
+            createItem('p', 'author', 'blue', item.author),
+
+            createItem('span', 'song', '', item.song),
+        );
+        out.appendChild(listItem);
+    });
+
+</script>
+</body>
+</html>
