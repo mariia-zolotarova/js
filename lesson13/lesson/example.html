@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            font-size: 16px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+
+        }
+
+        .main {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            padding: 20px;
+            gap: 16px;
+            border: 3px solid #ef7878;
+            cursor: pointer;
+        }
+
+        .alive {
+            background-color: green;
+        }
+
+        .dead {
+            background-color: red;
+        }
+
+        .unknown {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="out"></div>
+<div class="wrapper">
+    <div class="container">
+        <header class="header">
+        </header>
+        <main class="main">
+        </main>
+    </div>
+</div>
+
+<script>
+    // https://rickandmortyapi.com/api/character?page=1
+    let main = document.querySelector('.main')
+
+    function showAll() {
+        fetch('https://rickandmortyapi.com/api/character?page=1')
+            .then(data => data.json())
+            .then(data => {
+                console.log(data.results);
+                render(data.results)
+            })
+            .catch(error => console.log(error))
+    }
+
+    showAll()
+
+    function render(data) {
+        data.map(item => {
+            main.append(createItem(item))
+        })
+    }
+
+
+    function createItem(item) {
+        let div = document.createElement('div')
+        div.classList.add('card')
+
+        let img = document.createElement('img')
+        img.classList.add('card__img')
+        img.src = item.image
+
+        let content = document.createElement('div')
+        content.classList.add('card__content')
+
+        let h2 = document.createElement('h2')
+        h2.classList.add('card__title')
+        h2.innerHTML = item.name
+
+        let h5 = document.createElement('h2')
+        h5.classList.add('card__status')
+        h5.innerHTML = item.status
+
+
+        let p = document.createElement('p')
+        p.classList.add('card__species')
+        p.innerHTML = item.species
+
+        content.append(h2, h5, p)
+        div.append(img, content)
+
+        if (item.status === "Alive") {
+            div.classList.add('alive');
+        } else if (item.status === "Dead") {
+            div.classList.add('dead');
+        } else {
+            div.classList.add('unknown')
+        }
+
+        return div
+    }
+</script>
+</body>
+</html>
