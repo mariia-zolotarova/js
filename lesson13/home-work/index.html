@@ -1,10 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-          name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Document</title>
 
     <style>
@@ -59,37 +58,74 @@
         }
     </style>
 </head>
-<body>
-<div class="out"></div>
-<div class="wrapper">
-    <div class="container">
-        <header class="header">
-        </header>
-        <main class="main">
-        </main>
-    </div>
-</div>
 
+<body>
+<header></header>
+<div class="out"></div>
+<div class="nav">
+    <main class="main">
+    </main>
+    <button class="btn-left">Left</button>
+    <div class="pagination">
+
+    </div>
+    <button class="btn-right">Right</button>
+
+</div>
 <script>
-    // https://rickandmortyapi.com/api/character?page=1
+
+    let btnLeft = document.querySelector('.btn-left')
+    let btnRight = document.querySelector('.btn-right')
+
+    let paginationDiv = document.querySelector('.pagination')
     let main = document.querySelector('.main')
 
-    function showAll() {
-        fetch('https://rickandmortyapi.com/api/character?page=1')
+    let pageNum = 1;
+
+    btnRight.addEventListener('click', () => {
+        show(++pageNum);
+    });
+
+    btnLeft.addEventListener('click', () => {
+        if (pageNum > 1) {
+            show(--pageNum);
+        }
+    });
+
+    function show(pageNumber) {
+        fetch(`https://rickandmortyapi.com/api/character?page=${pageNumber}`)
             .then(data => data.json())
             .then(data => {
-                console.log(data.results);
+                pagesShow(data);
                 render(data.results)
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log("Помилка" + " " + error))
     }
 
-    showAll()
+    show(1);
+
+    function pagesShow(data) {
+        console.log(data);
+        console.log(data.info.pages);
+
+        function pagination(page) {
+            paginationDiv.innerHTML = ""
+            for (let i = 1; i <= page; i++) {
+                paginationDiv.innerHTML += `<button>${i}</button>`
+            }
+        }
+
+        pagination(data.info.pages)
+    }
 
     function render(data) {
-        data.map(item => {
-            main.append(createItem(item))
-        })
+        main.innerHTML = "";
+        const fragment = document.createDocumentFragment();
+
+        data.forEach(item => {
+            fragment.appendChild(createItem(item));
+        });
+        main.appendChild(fragment);
     }
 
     function createItem(item) {
@@ -127,8 +163,11 @@
             div.classList.add('unknown')
         }
 
-        return div
+        return div;
     }
+
+
 </script>
 </body>
+
 </html>
