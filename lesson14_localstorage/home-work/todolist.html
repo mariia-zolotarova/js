@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+</head>
+
+<body>
+
+<input class="inp" type="text">
+<button class="btn">add</button>
+
+<ol class="out">
+    <li>Test</li>
+</ol>
+<div class="count">Всього задач: 1</div>
+
+
+<script>
+    let inp = document.querySelector('.inp')
+    let out = document.querySelector('.out')
+    let btn = document.querySelector('.btn')
+    let countOut = document.querySelector('.count')
+
+    let list = localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : []
+
+
+    arr.map(item => {
+
+        out.innerHTML = item.name
+
+        btn.addEventListener('click', () => {
+            list.push(inp.value)
+
+            localStorage.setItem('list', JSON.stringify(list))
+            cartOut.innerHTML = list.length
+            console.log(list)
+        })
+        out.append(list)
+    })
+    countOut.innerHTML = out.length
+
+</script>
+</body>
+
+</html>

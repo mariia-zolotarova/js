@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    let arr = [
+        {
+            name: 'Name 1',
+            age: 22
+        }, {
+            name: 'Name 2',
+            age: 22
+        }, {
+            name: 'Name 3',
+            age: 22
+        }, {
+            name: 'Name 4',
+            age: 22
+        },
+    ]
+
+    let obj = {
+        name: 'Name 4',
+        age: 22
+    }
+
+
+    localStorage.setItem('obj', JSON.stringify(arr))
+    // localStorage.setItem('object', JSON.stringify(obj))
+
+    let test = JSON.parse(localStorage.getItem('obj'))
+    console.log(test)
+
+
+</script>
+</body>
+</html>
