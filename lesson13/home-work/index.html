@@ -56,15 +56,46 @@
         .unknown {
             background-color: yellow;
         }
+
+        .page__number {
+            text-decoration: none;
+
+            padding: 5px 12px;
+            margin: 5px;
+            border: 3px solid #ef7878;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .nav {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            align-items: center;
+
+        }
+
+        .btn-left,
+        .btn-right {
+            padding: 20px 40px;
+            border: 3px solid #ef7878;
+            font-size: 16px;
+        }
+
+        .active__button {
+            color: #ef7878;
+        }
     </style>
 </head>
 
 <body>
 <header></header>
 <div class="out"></div>
+<main class="main">
+</main>
 <div class="nav">
-    <main class="main">
-    </main>
+
+
     <button class="btn-left">Left</button>
     <div class="pagination">
 
@@ -80,6 +111,7 @@
     let paginationDiv = document.querySelector('.pagination')
     let main = document.querySelector('.main')
 
+
     let pageNum = 1;
 
     btnRight.addEventListener('click', () => {
@@ -93,6 +125,7 @@
     });
 
     function show(pageNumber) {
+        pageNum = pageNumber;
         fetch(`https://rickandmortyapi.com/api/character?page=${pageNumber}`)
             .then(data => data.json())
             .then(data => {
@@ -111,12 +144,26 @@
         function pagination(page) {
             paginationDiv.innerHTML = ""
             for (let i = 1; i <= page; i++) {
-                paginationDiv.innerHTML += `<button>${i}</button>`
+                //paginationDiv.innerHTML += `<button onclick="show(${i})" class="page__number">${i}</button>`
+                if (i === pageNum) {
+                    paginationDiv.innerHTML += `<button class="page__number active__button">${i}</button>`
+                } else {
+                    paginationDiv.innerHTML += `<button class="page__number">${i}</button>`
+                }
             }
         }
 
         pagination(data.info.pages)
+
+        let pageButton = document.querySelectorAll('.page__number')
+        pageButton.forEach((button) => {
+            button.addEventListener('click', () => {
+                const pageNumber = parseInt(button.textContent);
+                show(pageNumber);
+            })
+        })
     }
+
 
     function render(data) {
         main.innerHTML = "";
