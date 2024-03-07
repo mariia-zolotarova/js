@@ -32,6 +32,14 @@
             left: 50px;
             background-color: #bb8545;
         }
+
+        .light {
+            background-color: #aba9a9;
+        }
+
+        .dark {
+            background-color: black;
+        }
     </style>
 </head>
 <body>
@@ -46,9 +54,30 @@
     <script>
         let div = document.querySelector('.div')
         let circle = document.querySelector('.circle')
+        let body = document.querySelector('body')
+
+
+        if (localStorage.getItem('theme') === 'dark') {
+            circle.classList.toggle('active')
+            body.classList.add('dark');
+        } else {
+            body.classList.add('light');
+        }
+
 
         div.addEventListener('click', () => {
+            let currentTheme = localStorage.getItem('theme');
             circle.classList.toggle('active')
+
+            if (currentTheme === 'dark') {
+                localStorage.setItem('theme', 'light')
+                body.classList.remove('dark');
+                body.classList.add('light');
+            } else {
+                localStorage.setItem('theme', 'dark')
+                body.classList.remove('light');
+                body.classList.add('dark');
+            }
         })
     </script>
 </header>
