@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+    <style>
+        .out {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<h3>https://randomuser.me/api/</h3>
+<ol>
+    <li>Вивести 10 юзерів</li>
+    <li>По кліку ми зберігаемо</li>
+
+    <li>Показати збереженних</li>
+</ol>
+
+<div class="favorit">
+    <div class="count">0</div>
+    <button>show</button>
+</div>
+
+<main>
+    <div class="out"></div>
+    Сюди Юзери
+</main>
+
+
+<script>
+    let out = document.querySelector('.out');
+
+    function getUser() {
+        out.innerHTML = '';
+        fetch('https://randomuser.me/api/')
+            .then(data => data.json())
+            .then(data => {
+                let obj = data.results[0]
+                console.log(obj)
+                out.innerHTML += `
+                <div class="card">
+                <img class="img" src="${obj.picture.medium}" alt="user">
+                <p class="name">Name: ${obj.name.first}</p>
+                <p class="gender">Gender: ${obj.gender}</p>
+                </div>`
+            })
+            .catch(error => console.log(error))
+    }
+
+    for (let i = 0; i < 10; i++) {
+        getUser()
+    }
+
+</script>
+</body>
+
+
+</html>

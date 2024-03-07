@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<select class="sel" id="" name="">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+</select>
+<button class="btn">Show</button>
+
+<div class="out"></div>
+
+<script>
+
+    let out = document.querySelector('.out');
+    let sel = document.querySelector('.sel');
+    let btn = document.querySelector('.btn');
+
+
+    function getDog() {
+        out.innerHTML = '';
+        fetch('https://dog.ceo/api/breeds/image/random')
+
+            .then(data => data.json())
+            .then(data => {
+                console.log(data.message)
+                out.innerHTML += `
+                    <img class="img" src="${data.message}" alt="user">
+                    <p class="name">Name: ${}</p>`
+            })
+    }
+
+
+    btn.onclick = () => {
+        out.innerHTML = showImg(sel.value)
+    }
+
+    // function show(value) {
+    //     switch (value) {
+    //         case '5':
+    //             return showImg(value);
+    //             break;
+    //         case '10':
+    //             return showImg(value);
+    //             break;
+    //         case '15':
+    //             return showImg(value);
+    //             break;
+    //         case '20':
+    //             return showImg(value);
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // }
+
+    function showImg(value) {
+
+        for (let i = 0; i < value; i++) {
+            getDog()
+        }
+    }
+
+    // show(value)
+</script>
+</body>
+</html>
