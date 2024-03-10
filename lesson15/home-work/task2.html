@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+</head>
+
+<body>
+
+<h3>https://randomuser.me/api/</h3>
+<ol>
+    <li>Вивести 10 юзерів</li>
+    <li>По кліку ми зберігаемо</li>
+
+    <li>Показати збереженних</li>
+</ol>
+
+<div class="favorit">
+    <div class="count">0</div>
+    <button>show</button>
+</div>
+
+<main>
+
+</main>
+
+
+<script>
+
+    let main = document.querySelector('main')
+
+    let countOut = document.querySelector('.count')
+
+    let fav = []
+
+    function getApi() {
+
+        fetch('https://randomuser.me/api/')
+            .then(data => data.json())
+            .then(data => {
+                let obj = data.results[0]
+                console.log(obj)
+
+                let div = document.createElement('div')
+                div.addEventListener('click', () => {
+                    fav.push(data.results[0])
+                    console.log(fav);
+                    countOut.innerHTML = fav.length
+                })
+                let h2 = document.createElement('h2')
+                h2.innerHTML = obj.name.first
+                let img = document.createElement('img')
+                img.src = obj.picture.medium
+
+                div.append(h2, img)
+
+                main.append(div)
+
+
+            })
+            .catch(error => console.log(error))
+    }
+
+
+    getApi()
+    getApi()
+    getApi()
+    getApi()
+    getApi()
+    getApi()
+    getApi()
+    getApi()
+
+
+</script>
+
+</body>
+
+</html>
