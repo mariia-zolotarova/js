@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="out"></div>
+<div class="wrapper">
+    <div class="container">
+        <header class="header">
+        </header>
+        <main class="main">
+        </main>
+    </div>
+</div>
+
+<script>
+
+    let main = document.querySelector('.main');
+
+    function showAll() {
+        fetch('http://www.omdbapi.com/?s=inception&apikey=ebd6c053&page=2')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.Search);
+                render(data.Search);
+            })
+            .catch(error => console.log(error));
+    }
+
+    showAll();
+
+    function render(data) {
+        // Clear previous content
+        main.innerHTML = '';
+
+        data.forEach(item => {
+            main.append(createItem(item));
+        });
+    }
+
+    function createItem(item) {
+        let div = document.createElement('div');
+        div.classList.add('card');
+
+        let img = document.createElement('img');
+        img.classList.add('card__img');
+        img.src = item.Poster;
+
+        let content = document.createElement('div')
+        content.classList.add('card__content')
+
+        let h2 = document.createElement('h2')
+        h2.classList.add('card__title')
+        h2.innerHTML = item.Title
+
+
+        content.append(h2)
+
+        div.append(img, content);
+
+        return div;
+    }
+</script>
+</body>
+</html>
